@@ -1,12 +1,25 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="IMS_ADDRESS")
 public class Address {
-	
+	@Id
+	@Column(name="CLIENT_NAME")
 	private int addressId;
+	@Column(name="STREET_ADDRESS_1")
 	private String streetAddress1;
+	@Column(name="STREET_ADDRESS_2")
 	private String streetAddress2;
+	@Column(name="ADDRESS_CITY")
 	private String city;
+	@Column(name="STATE_ID")
 	private State state;
+	@Column(name="ADDRESS_ZIP")
 	private String zip;
 	public int getAddressId() {
 		return addressId;

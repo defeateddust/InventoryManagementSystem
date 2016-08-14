@@ -1,13 +1,29 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="IMS_CLIENT")
 public class Client {
+@Id
+@Column(name="IMS_CLIENT_ID",nullable=false)
 private int clientId;
+@Column(name="CLIENT_NAME",nullable=false)
 private String name;
+@Column(name="CLIENT_EMAIL",nullable=false)
 private String email;
+@Column(name="POINT_OF_CONTACT_NAME",nullable=false)
 private String contactName;
+@Column(name="CLIENT_PHONE",nullable=false)
 private String phone;
+@Column(name="CLIENT_FAX",nullable=false)
 private String fax;
-private Address address;
+@Column(name="ADDRESS_ID",unique=true,nullable=false)
+private Address address;//FK
+@Column(name="CLIENT_TYPE_ID",nullable=false)
 private ClientType type;
 
 public int getClientId() {
