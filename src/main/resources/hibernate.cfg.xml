@@ -24,6 +24,9 @@
 		<property name="hibernate.hbm2ddl.auto">
 			update
 		</property>
+		<mapping class="com.revature.beans.Address"/>
+		<mapping class="com.revature.beans.Category"/>
+		
 		
 		
 	</session-factory>

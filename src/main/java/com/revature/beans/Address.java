@@ -9,17 +9,17 @@ import javax.persistence.Table;
 @Table(name="IMS_ADDRESS")
 public class Address {
 	@Id
-	@Column(name="CLIENT_NAME")
+	@Column(name="CLIENT_NAME",nullable=false)
 	private int addressId;
-	@Column(name="STREET_ADDRESS_1")
+	@Column(name="STREET_ADDRESS_1",nullable=false)
 	private String streetAddress1;
-	@Column(name="STREET_ADDRESS_2")
+	@Column(name="STREET_ADDRESS_2",nullable=false)
 	private String streetAddress2;
-	@Column(name="ADDRESS_CITY")
+	@Column(name="ADDRESS_CITY",nullable=false)
 	private String city;
-	@Column(name="STATE_ID")
+	@Column(name="STATE_ID",nullable=false)
 	private State state;
-	@Column(name="ADDRESS_ZIP")
+	@Column(name="ADDRESS_ZIP",nullable=false)
 	private String zip;
 	public int getAddressId() {
 		return addressId;

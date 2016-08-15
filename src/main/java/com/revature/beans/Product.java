@@ -3,17 +3,34 @@ package com.revature.beans;
 import java.sql.Blob;
 import java.util.Set;
 
-public class Product {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="IMS_PORDUCT")
+public class Product {
+	@Id
+	@Column(name="PRODUCT_UPC")
 	private int upc;
+	@Column(name="PRODUCT_NAME")
 	private String productName;
+	@Column(name="PRODUCT_DESCRIPTION")
 	private String description;
+	@Column(name="SHORT_NAME")
 	private String shortName;
+	@Column(name="UNIT_COST")
 	private double cost;
+	@Column(name="PACK_SIZE")
 	private String size;
+	@Column(name="REORDER_QUANTITY")
 	private int reorder;
+	@Column(name="RETAIL_PRICE")
 	private double price;
+	@Column(name="PRODUCT_WEIGHT")
 	private double weight;
+	@Column(name="PRODUCT_IMAGE")
 	private Blob image;//ugh
 	private Set<Category> catagories;
 	public int getUpc() {
