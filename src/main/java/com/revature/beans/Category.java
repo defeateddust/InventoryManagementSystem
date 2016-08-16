@@ -4,16 +4,25 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="IMS_PRODUCT_CATAGORY")
 public class Category {
 @Id
 @Column(name="CATEGORY_ID",nullable=false)
+@GeneratedValue(strategy=GenerationType.AUTO)
 private int catagoryId;
 @Column(name="CATEGORY_DESCRIPTION",nullable=false)
 private String description;
+@ManyToMany
+@JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="PRODUCT_UPC"),
+inverseJoinColumns=@JoinColumn(name="CATEGORY_ID"))
 private Set<Product> products;
 public int getCatagoryId() {
 	return catagoryId;

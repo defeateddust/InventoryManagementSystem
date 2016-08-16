@@ -5,7 +5,11 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +17,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@Column(name="PRODUCT_UPC",nullable=false)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int upc;
 	@Column(name="PRODUCT_NAME",nullable=false)
 	private String productName;
@@ -32,6 +37,7 @@ public class Product {
 	private double weight;
 	@Column(name="PRODUCT_IMAGE")
 	private Blob image;//ugh
+	@ManyToMany(mappedBy="products")
 	private Set<Category> catagories;
 	public int getUpc() {
 		return upc;

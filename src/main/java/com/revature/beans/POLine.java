@@ -2,6 +2,8 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 public class POLine {
 @Id
 @Column(name="ORDER_NUMBER",nullable=false)
+@GeneratedValue(strategy=GenerationType.AUTO)
 private PurchaseOrder order;
 @Column(name="LINE_NUMBER",nullable=false)
 private int line;
