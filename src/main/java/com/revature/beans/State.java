@@ -1,8 +1,19 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="IMS_STATE_ABBRV")
 public class State {
+	@Id
+	@Column(name="ABBRV_ID")
 	private int stateId;
+	@Column(name="STATE_NAME")
 	private String stateName;
+	@Column(name="STATE_ABBRV")
 	private String abbreviation;
 	public int getStateId() {
 		return stateId;

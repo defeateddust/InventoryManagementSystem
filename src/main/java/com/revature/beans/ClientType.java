@@ -1,7 +1,17 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class ClientType {
+@Id
+@Column(name="CLIENT_TYPE_ID",nullable=false)
 private int clientId;
+@Column(name="CLIENT_TYPE",nullable=false)
 private String type;
 public int getClientId() {
 	return clientId;

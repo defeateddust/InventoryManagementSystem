@@ -2,8 +2,17 @@ package com.revature.beans;
 
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="IMS_PRODUCT_CATAGORY")
 public class Category {
+@Id
+@Column(name="CATEGORY_ID",nullable=false)
 private int catagoryId;
+@Column(name="CATEGORY_DESCRIPTION",nullable=false)
 private String description;
 private Set<Product> products;
 public int getCatagoryId() {

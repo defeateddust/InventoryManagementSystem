@@ -12,21 +12,21 @@ import javax.persistence.Table;
 @Table(name="IMS_PORDUCT")
 public class Product {
 	@Id
-	@Column(name="PRODUCT_UPC")
+	@Column(name="PRODUCT_UPC",nullable=false)
 	private int upc;
-	@Column(name="PRODUCT_NAME")
+	@Column(name="PRODUCT_NAME",nullable=false)
 	private String productName;
-	@Column(name="PRODUCT_DESCRIPTION")
+	@Column(name="PRODUCT_DESCRIPTION",nullable=false)
 	private String description;
-	@Column(name="SHORT_NAME")
+	@Column(name="SHORT_NAME",nullable=false)
 	private String shortName;
-	@Column(name="UNIT_COST")
+	@Column(name="UNIT_COST",nullable=false)
 	private double cost;
-	@Column(name="PACK_SIZE")
+	@Column(name="PACK_SIZE",nullable=false)
 	private String size;
-	@Column(name="REORDER_QUANTITY")
+	@Column(name="REORDER_QUANTITY",nullable=false)
 	private int reorder;
-	@Column(name="RETAIL_PRICE")
+	@Column(name="RETAIL_PRICE",nullable=false)
 	private double price;
 	@Column(name="PRODUCT_WEIGHT")
 	private double weight;

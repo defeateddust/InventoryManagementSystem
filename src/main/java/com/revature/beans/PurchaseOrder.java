@@ -2,13 +2,25 @@ package com.revature.beans;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="IMS_PURCHASE_ORDER")
 public class PurchaseOrder {
-
+	@Id
+	@Column(name="ORDER_NUMBER",nullable=false)
 	private int orderNumber;
+	@Column(nullable=false)
 	private double subtotal;
+	@Column(name="PURCHASE_DATE",nullable=false)
 	private Date purchaseDate;
+	@Column(name="TAX_AMOUNT",nullable=false)
 	private double tax;
+	@Column(name="PO_TOTAL",nullable=false)
 	private double total;
+	@Column(name="CLIENT_ID",nullable=false)
 	private Client client;
 	public int getOrderNumber() {
 		return orderNumber;
