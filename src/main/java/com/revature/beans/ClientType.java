@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name="IMS_CLIENT_TYPE")
 public class ClientType {
 @Id
 @Column(name="CLIENT_TYPE_ID",nullable=false)

@@ -3,6 +3,9 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,9 +24,11 @@ private String contactName;
 private String phone;
 @Column(name="CLIENT_FAX",nullable=false)
 private String fax;
+@OneToOne
 @Column(name="ADDRESS_ID",unique=true,nullable=false)
-private Address address;//FK
-@Column(name="CLIENT_TYPE_ID",nullable=false)
+private Address address;
+@ManyToOne
+@JoinColumn(name="CLIENT_TYPE_ID",nullable=false)
 private ClientType type;
 
 public int getClientId() {

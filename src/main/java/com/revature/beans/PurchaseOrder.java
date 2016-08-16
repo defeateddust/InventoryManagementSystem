@@ -5,6 +5,8 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 @Entity
 @Table(name="IMS_PURCHASE_ORDER")
@@ -20,7 +22,8 @@ public class PurchaseOrder {
 	private double tax;
 	@Column(name="PO_TOTAL",nullable=false)
 	private double total;
-	@Column(name="CLIENT_ID",nullable=false)
+	@ManyToOne
+	@JoinColumn(name="CLIENT_ID",nullable=false)
 	private Client client;
 	public int getOrderNumber() {
 		return orderNumber;

@@ -3,6 +3,8 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,8 @@ private int line;
 private double price;
 @Column(name="QUANTITY_ORDERED",nullable=false)
 private int quantity;
-@Column(name="PRODUCT_UPC",nullable=false)
+@ManyToOne
+@JoinColumn(name="PRODUCT_UPC",nullable=false)
 private Product product;
 public PurchaseOrder getOrder() {
 	return order;

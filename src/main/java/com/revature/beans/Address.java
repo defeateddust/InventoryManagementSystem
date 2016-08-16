@@ -3,6 +3,8 @@ package com.revature.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +19,8 @@ public class Address {
 	private String streetAddress2;
 	@Column(name="ADDRESS_CITY",nullable=false)
 	private String city;
-	@Column(name="STATE_ID",nullable=false)
+	@ManyToOne
+	@JoinColumn(name="STATE_ID",nullable=false)
 	private State state;
 	@Column(name="ADDRESS_ZIP",nullable=false)
 	private String zip;
