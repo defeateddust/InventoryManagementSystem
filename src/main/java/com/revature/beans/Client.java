@@ -36,8 +36,12 @@ private String phone;
 @Autowired
 private String fax;
 @OneToOne
+<<<<<<< HEAD
 @Column(name="ADDRESS_ID",unique=true,nullable=false)
 @Autowired
+=======
+@JoinColumn(name="ADDRESS_ID",unique=true,nullable=false)
+>>>>>>> refs/remotes/origin/master
 private Address address;
 @ManyToOne
 @JoinColumn(name="CLIENT_TYPE_ID",nullable=false)

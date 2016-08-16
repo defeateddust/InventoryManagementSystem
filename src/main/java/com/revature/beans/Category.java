@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ private int catagoryId;
 @Column(name="CATEGORY_DESCRIPTION",nullable=false)
 @Autowired
 private String description;
-@ManyToMany
+@ManyToMany(fetch=FetchType.EAGER)
 @JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="PRODUCT_UPC"),
 inverseJoinColumns=@JoinColumn(name="CATEGORY_ID"))
 @Autowired

@@ -36,6 +36,7 @@ public class PurchaseOrder {
 	@JoinColumn(name="CLIENT_ID",nullable=false)
 	@Autowired
 	private Client client;
+	
 	public int getOrderNumber() {
 		return orderNumber;
 	}
