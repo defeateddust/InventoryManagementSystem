@@ -9,21 +9,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name="IMS_PO_LINE")
 public class POLine {
 @Id
 @Column(name="ORDER_NUMBER",nullable=false)
 @GeneratedValue(strategy=GenerationType.AUTO)
+@Autowired
 private PurchaseOrder order;
 @Column(name="LINE_NUMBER",nullable=false)
+@Autowired
 private int line;
 @Column(name="UNIT_PRICE",nullable=false)
+@Autowired
 private double price;
 @Column(name="QUANTITY_ORDERED",nullable=false)
+@Autowired
 private int quantity;
 @ManyToOne
 @JoinColumn(name="PRODUCT_UPC",nullable=false)
+@Autowired
 private Product product;
 public PurchaseOrder getOrder() {
 	return order;
@@ -55,6 +62,7 @@ public Product getProduct() {
 public void setProduct(Product product) {
 	this.product = product;
 }
+@Autowired
 public POLine(PurchaseOrder order, int line, double price, int quantity, Product product) {
 	super();
 	this.order = order;

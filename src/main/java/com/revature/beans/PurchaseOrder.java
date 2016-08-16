@@ -10,23 +10,31 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.beans.factory.annotation.Autowired;
 @Entity
 @Table(name="IMS_PURCHASE_ORDER")
 public class PurchaseOrder {
 	@Id
 	@Column(name="ORDER_NUMBER",nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Autowired
 	private int orderNumber;
 	@Column(nullable=false)
+	@Autowired
 	private double subtotal;
 	@Column(name="PURCHASE_DATE",nullable=false)
+	@Autowired
 	private Date purchaseDate;
 	@Column(name="TAX_AMOUNT",nullable=false)
+	@Autowired
 	private double tax;
 	@Column(name="PO_TOTAL",nullable=false)
+	@Autowired
 	private double total;
 	@ManyToOne
 	@JoinColumn(name="CLIENT_ID",nullable=false)
+	@Autowired
 	private Client client;
 	public int getOrderNumber() {
 		return orderNumber;
@@ -64,6 +72,7 @@ public class PurchaseOrder {
 	public void setClient(Client client) {
 		this.client = client;
 	}
+	@Autowired
 	public PurchaseOrder(int orderNumber, double subtotal, Date purchaseDate, double tax, double total, Client client) {
 		super();
 		this.orderNumber = orderNumber;
