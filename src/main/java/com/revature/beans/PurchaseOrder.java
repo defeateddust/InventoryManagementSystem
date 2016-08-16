@@ -28,6 +28,7 @@ public class PurchaseOrder {
 	@ManyToOne
 	@JoinColumn(name="CLIENT_ID",nullable=false)
 	private Client client;
+	
 	public int getOrderNumber() {
 		return orderNumber;
 	}

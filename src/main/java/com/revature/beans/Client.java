@@ -28,7 +28,7 @@ private String phone;
 @Column(name="CLIENT_FAX",nullable=false)
 private String fax;
 @OneToOne
-@Column(name="ADDRESS_ID",unique=true,nullable=false)
+@JoinColumn(name="ADDRESS_ID",unique=true,nullable=false)
 private Address address;
 @ManyToOne
 @JoinColumn(name="CLIENT_TYPE_ID",nullable=false)
