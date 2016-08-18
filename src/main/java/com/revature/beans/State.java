@@ -14,9 +14,9 @@ public class State {
 	@Column(name="ABBRV_ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int stateId;
-	@Column(name="STATE_NAME")
+	@Column(name="STATE_NAME",nullable=false)
 	private String stateName;
-	@Column(name="STATE_ABBRV")
+	@Column(name="STATE_ABBRV",nullable=false)
 	private String abbreviation;
 	public int getStateId() {
 		return stateId;

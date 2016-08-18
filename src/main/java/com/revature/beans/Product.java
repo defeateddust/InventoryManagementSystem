@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -39,6 +40,9 @@ public class Product {
 	private Blob image;//ugh
 	@ManyToMany(mappedBy="products")
 	private Set<Category> catagories;
+	@OneToMany(mappedBy="product")
+	private Set<POLine> orders;
+	
 	public int getUpc() {
 		return upc;
 	}

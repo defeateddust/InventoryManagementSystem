@@ -1,7 +1,9 @@
 package com.revature.beans;
 
 import java.sql.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="IMS_PURCHASE_ORDER")
@@ -28,6 +31,8 @@ public class PurchaseOrder {
 	@ManyToOne
 	@JoinColumn(name="CLIENT_ID",nullable=false)
 	private Client client;
+	@OneToMany(mappedBy="poLineId.order",cascade=CascadeType.REMOVE)
+	private Set<POLine> orders;
 	
 	public int getOrderNumber() {
 		return orderNumber;

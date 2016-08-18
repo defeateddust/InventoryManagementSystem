@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class POLineId implements Serializable{
 
 		@ManyToOne
-		@JoinColumn(name="ORDER_NUMBER",nullable=false)
+		@JoinColumn(name="ORDER_NUMBER",nullable=false,unique=true)
         private PurchaseOrder order;
 
         @Column(name="LINE_NUMBER",nullable=false)

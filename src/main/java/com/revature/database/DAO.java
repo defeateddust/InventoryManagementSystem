@@ -11,6 +11,6 @@ public class DAO {
 	}
 	public void insert(Object obj){
 		
-		session.save(obj);
+		session.saveOrUpdate(obj);
 	}
 }

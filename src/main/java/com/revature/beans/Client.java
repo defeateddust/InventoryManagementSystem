@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -33,6 +36,8 @@ private Address address;
 @ManyToOne
 @JoinColumn(name="CLIENT_TYPE_ID",nullable=false)
 private ClientType type;
+@OneToMany(mappedBy="client")
+private Set<PurchaseOrder> orders;
 
 public int getClientId() {
 	return clientId;
