@@ -1,5 +1,7 @@
 package com.revature.database;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -25,5 +27,9 @@ public class DataLayer {
 		}catch(RuntimeException c){
 			trans.rollback();
 		}
+	}
+	
+	public List<Object> selectAllRows(Object obj){
+		return dao.selectAll(obj);
 	}
 }

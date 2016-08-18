@@ -1,8 +1,12 @@
 package com.revature.C2IMS;
 
+import java.util.List;
+
+import com.revature.beans.Client;
 import com.revature.beans.ClientType;
 import com.revature.beans.State;
 import com.revature.database.DataLayer;
+import com.revature.C2IMS.BusinessDelegate;
 
 public class Testing {
 public static void main(String[] args) {
@@ -17,9 +21,14 @@ public static void main(String[] args) {
 //		state = new State(i,stateArr[i],abbreviations[i]);
 //		dl.createRow(state);
 //	}
-	ClientType ct= new ClientType(1, "Supplier");
-	DataLayer dl = new DataLayer();
-	dl.createRow(ct);
-	
+//	ClientType ct= new ClientType(1, "Supplier");
+//	DataLayer dl = new DataLayer();
+//	dl.createRow(ct);
+	BusinessDelegate bd = new BusinessDelegate();
+	List<Object> clients = bd.getAllClients();
+	if (clients != null)
+		System.out.println(((Client) clients.get(0)).getName());
+	else
+		System.out.println("no list");
 }
 }

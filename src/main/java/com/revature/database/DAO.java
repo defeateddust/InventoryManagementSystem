@@ -1,6 +1,8 @@
 package com.revature.database;
 
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 
@@ -12,5 +14,8 @@ public class DAO {
 	public void insert(Object obj){
 		
 		session.saveOrUpdate(obj);
+	}
+	public List<Object> selectAll(Object obj) {
+		return session.createCriteria(obj.getClass()).list();
 	}
 }
