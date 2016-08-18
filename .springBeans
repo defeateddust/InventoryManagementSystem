@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/main/resources/dataBeans.xml</config>
+		<config>src/main/resources/serviceBeans.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

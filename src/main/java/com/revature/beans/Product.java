@@ -13,44 +13,46 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="IMS_PORDUCT")
+@Component("product")
 public class Product {
 	@Id
 	@Column(name="PRODUCT_UPC",nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Autowired
+	
 	private int upc;
 	@Column(name="PRODUCT_NAME",nullable=false)
-	@Autowired
+	
 	private String productName;
 	@Column(name="PRODUCT_DESCRIPTION",nullable=false)
-	@Autowired
+	
 	private String description;
 	@Column(name="SHORT_NAME",nullable=false)
-	@Autowired
+	
 	private String shortName;
 	@Column(name="UNIT_COST",nullable=false)
-	@Autowired
+	
 	private double cost;
 	@Column(name="PACK_SIZE",nullable=false)
-	@Autowired
+	
 	private String size;
 	@Column(name="REORDER_QUANTITY",nullable=false)
-	@Autowired
+	
 	private int reorder;
 	@Column(name="RETAIL_PRICE",nullable=false)
-	@Autowired
+	
 	private double price;
 	@Column(name="PRODUCT_WEIGHT")
-	@Autowired
+	
 	private double weight;
 	@Column(name="PRODUCT_IMAGE")
-	@Autowired
+	
 	private Blob image;//ugh
 	@ManyToMany(mappedBy="products")
-	@Autowired
+	
 	private Set<Category> catagories;
 	public int getUpc() {
 		return upc;
@@ -118,7 +120,7 @@ public class Product {
 	public void setCatagories(Set<Category> catagories) {
 		this.catagories = catagories;
 	}
-	@Autowired
+	
 	public Product(int upc, String productName, String description, String shortName, double cost, String size,
 			int reorder, double price, double weight, Blob image, Set<Category> catagories) {
 		super();

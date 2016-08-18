@@ -1,10 +1,12 @@
 package com.revature.database;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Service;
 
-import com.revature.beans.State;
-
+@Service("dl")
 public class DataLayer {
 	DAO dao;
 	private Session session;
@@ -25,5 +27,9 @@ public class DataLayer {
 		}catch(RuntimeException c){
 			trans.rollback();
 		}
+	}
+	
+	public List<Object> selectAllRows(Object obj){
+		return dao.selectAll(obj);
 	}
 }

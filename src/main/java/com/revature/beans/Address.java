@@ -10,30 +10,32 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="IMS_ADDRESS")
+@Component("address")
 public class Address {
 	@Id
 	@Column(name="CLIENT_NAME",nullable=false)
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Autowired
+	
 	private int addressId;
 	@Column(name="STREET_ADDRESS_1",nullable=false)
-	@Autowired
+	
 	private String streetAddress1;
 	@Column(name="STREET_ADDRESS_2",nullable=false)
-	@Autowired
+	
 	private String streetAddress2;
 	@Column(name="ADDRESS_CITY",nullable=false)
-	@Autowired
+	
 	private String city;
 	@ManyToOne
 	@JoinColumn(name="STATE_ID",nullable=false)
-	@Autowired
+	
 	private State state;
 	@Column(name="ADDRESS_ZIP",nullable=false)
-	@Autowired
+	
 	private String zip;
 	public int getAddressId() {
 		return addressId;
@@ -71,7 +73,7 @@ public class Address {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	@Autowired
+	
 	public Address(int addressId, String streetAddress1, String streetAddress2, String city, State state, String zip) {
 		super();
 		this.addressId = addressId;

@@ -8,20 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="IMS_STATE_ABBRV")
+@Component("state")
 public class State {
 	@Id
 	@Column(name="ABBRV_ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Autowired
+	
 	private int stateId;
 	@Column(name="STATE_NAME")
-	@Autowired
+	
 	private String stateName;
 	@Column(name="STATE_ABBRV")
-	@Autowired
+	
 	private String abbreviation;
 	public int getStateId() {
 		return stateId;
@@ -41,7 +43,7 @@ public class State {
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
-	@Autowired
+	
 	public State(int stateId, String stateName, String abbreviation) {
 		super();
 		this.stateId = stateId;
