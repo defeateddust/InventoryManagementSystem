@@ -24,7 +24,7 @@ public class DAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Object> getBy(Object obj, String property, String limiter) {
+	public List<Object> getBy(Object obj, String property, Object limiter) {
 		Criteria cri = session.createCriteria(obj.getClass())
 				.add(Restrictions.eq(property, limiter));
 		return cri.list();
