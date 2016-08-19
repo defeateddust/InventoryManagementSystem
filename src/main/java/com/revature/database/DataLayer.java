@@ -8,6 +8,8 @@ import org.hibernate.Transaction;
 public class DataLayer {
 	DAO dao;
 	private Session session;
+	
+	
 	public DataLayer(){
 		session=SessionFactoryManager.getInstance().openSession();
 		dao = new DAO(session);
