@@ -29,6 +29,10 @@ public class DataLayer {
 			trans.rollback();
 		}
 	}
+	
+	public List<Object> selectRestricted(Object obj, String property, String limiter) {
+		return dao.getBy(obj, property, limiter);
+	}
 
 	public List<Object> selectAllRows(Object obj) {
 		return dao.selectAll(obj);

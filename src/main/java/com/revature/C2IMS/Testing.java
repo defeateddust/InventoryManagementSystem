@@ -1,5 +1,7 @@
 package com.revature.C2IMS;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.revature.beans.ClientType;
@@ -25,12 +27,9 @@ public static void main(String[] args) {
 //	dl.createRow(ct);
 //	
 //}
- 	log.trace("doing a null check");
-	log.debug("Connecting to database");
-    log.info("Hello World");
-    log.warn("Someone is attempting to access unauthorized resource");
-    log.error("exception thrown ");
-    log.fatal("really bad shutting down");
-
+ 	DataLayer dl = new DataLayer();
+ 	List<Object> state = dl.selectRestricted(new State(), "abbreviation", "TX");
+ 	for (Object o:state)
+ 		System.out.println(((State) o).getStateName());
 }
 }
