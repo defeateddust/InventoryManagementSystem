@@ -32,6 +32,18 @@ public class DataLayer {
 		}
 	}
 	
+	public void updateRow(Object obj) {
+		Transaction trans = session.beginTransaction();
+		try{
+			dao.update(obj);
+			trans.commit();
+		} catch(RuntimeException c){
+			log.error("RuntimeException in DataLayer");
+			c.printStackTrace();
+			trans.rollback();
+		}
+	}
+	
 	public void delete(Object obj, Serializable id) {
 		Transaction trans = session.beginTransaction();
 		try {

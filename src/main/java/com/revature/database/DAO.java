@@ -20,6 +20,10 @@ public class DAO {
 		session.saveOrUpdate(obj);
 	}
 	
+	public void update(Object obj) {
+		session.saveOrUpdate(obj);
+	}
+	
 	public void deleteById(Class<?> type, Serializable id) {
 		Object instance = session.load(type, id);
 		if (instance != null)
