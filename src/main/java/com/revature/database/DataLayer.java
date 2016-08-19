@@ -1,5 +1,6 @@
 package com.revature.database;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -26,7 +27,31 @@ public class DataLayer {
 		try{
 			dao.insert(obj);
 			trans.commit();
-		}catch(RuntimeException c){
+		} catch(RuntimeException c){
+			log.error("RuntimeException in DataLayer");
+			c.printStackTrace();
+			trans.rollback();
+		}
+	}
+	
+	public void updateRow(Object obj) {
+		Transaction trans = session.beginTransaction();
+		try{
+			dao.update(obj);
+			trans.commit();
+		} catch(RuntimeException c){
+			log.error("RuntimeException in DataLayer");
+			c.printStackTrace();
+			trans.rollback();
+		}
+	}
+	
+	public void delete(Object obj, Serializable id) {
+		Transaction trans = session.beginTransaction();
+		try {
+			dao.deleteById(obj.getClass(), id);
+			trans.commit();
+		} catch(RuntimeException c){
 			log.error("RuntimeException in DataLayer");
 			c.printStackTrace();
 			trans.rollback();

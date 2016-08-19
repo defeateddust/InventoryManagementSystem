@@ -2,6 +2,7 @@ package com.revature.beans;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name="IMS_CLIENT")
@@ -30,7 +34,7 @@ private String contactName;
 private String phone;
 @Column(name="CLIENT_FAX",nullable=false)
 private String fax;
-@OneToOne
+@OneToOne(cascade=CascadeType.ALL)
 @JoinColumn(name="ADDRESS_ID",unique=true,nullable=false)
 private Address address;
 @ManyToOne

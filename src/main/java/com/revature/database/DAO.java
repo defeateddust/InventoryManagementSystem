@@ -1,6 +1,7 @@
 package com.revature.database;
 
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -20,8 +21,14 @@ public class DAO {
 		session.saveOrUpdate(obj);
 	}
 	
-	public void delete(Object obj) {
-		Query delete = session.createQuery("delete from :tableName where id = :objId");
+	public void update(Object obj) {
+		session.saveOrUpdate(obj);
+	}
+	
+	public void deleteById(Class<?> type, Serializable id) {
+		Object instance = session.load(type, id);
+		if (instance != null)
+			session.delete(instance);
 	}
 	
 	@SuppressWarnings("unchecked")
