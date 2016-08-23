@@ -7,7 +7,10 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+
+import com.revature.beans.Client;
 
 
 public class DAO {
@@ -21,7 +24,7 @@ public class DAO {
 	}
 	
 	public void update(Object obj) {
-		session.saveOrUpdate(obj);
+		session.merge(obj);
 	}
 	
 	public void deleteById(Class<?> type, Serializable id) {
@@ -38,7 +41,8 @@ public class DAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Object> selectAll(Object obj) {
-		return session.createCriteria(obj.getClass()).list();
+	public List<Object> selectAll(Object obj, String order) {
+		return session.createCriteria(obj.getClass())
+				.addOrder(Order.asc(order)).list();
 	}
 }
