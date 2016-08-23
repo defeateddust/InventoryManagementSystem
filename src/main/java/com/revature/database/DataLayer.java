@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.beans.Client;
+
 public class DataLayer {
 	private static Logger log = Logger.getRootLogger();
 	DAO dao;
@@ -46,6 +48,7 @@ public class DataLayer {
 		}
 	}
 	
+	
 	public void delete(Object obj, Serializable id) {
 		Transaction trans = session.beginTransaction();
 		try {
@@ -62,7 +65,7 @@ public class DataLayer {
 		return dao.getBy(obj, property, limiter);
 	}
 
-	public List<Object> selectAllRows(Object obj) {
-		return dao.selectAll(obj);
+	public List<Object> selectAllRows(Object obj, String order) {
+		return dao.selectAll(obj, order);
 	}
 }
