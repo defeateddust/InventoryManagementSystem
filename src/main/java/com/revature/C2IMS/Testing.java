@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.beans.Category;
 import com.revature.beans.ClientType;
 import com.revature.beans.State;
 import com.revature.database.DataLayer;
@@ -28,8 +29,11 @@ public static void main(String[] args) {
 //	
 //}
  	DataLayer dl = new DataLayer();
- 	List<Object> state = dl.selectRestricted(new State(), "abbreviation", "TX");
- 	for (Object o:state)
- 		System.out.println(((State) o).getStateName());
+// 	List<Object> category = dl.selectRestricted(new Category(), "description", "RPG");
+// 	for (Object o:category)
+// 		System.out.println(((Category) o).getDescription());
+// 	Category ct = new Category();
+//	ct.setDescription("Expansion");
+//	dl.createRow(ct);
 }
 }
