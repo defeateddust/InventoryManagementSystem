@@ -55,7 +55,7 @@ public class DAO {
 		else
 			return null;
 	}
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	public List<Object> selectAll(Object obj, String order) {
 		return session.createCriteria(obj.getClass())
 				.addOrder(Order.asc(order)).list();

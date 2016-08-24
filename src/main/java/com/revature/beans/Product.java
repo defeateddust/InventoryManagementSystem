@@ -125,8 +125,7 @@ public class Product {
 		this.onHand = onHand;
 	}
 	public Product(int upc, String productName, String description, String shortName, double cost, String size,
-			int reorder, double price, double weight, Blob image, int onHand, Set<Category> catagories,
-			Set<POLine> orders) {
+			int reorder, double price, double weight, Blob image, int onHand, Set<Category> catagories) {
 		super();
 		this.upc = upc;
 		this.productName = productName;
@@ -140,7 +139,6 @@ public class Product {
 		this.image = image;
 		this.onHand = onHand;
 		this.catagories = catagories;
-		this.orders = orders;
 	}
 	public Product() {
 		super();
