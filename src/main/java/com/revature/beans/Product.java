@@ -5,11 +5,13 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -40,7 +42,11 @@ public class Product {
 	private Blob image;//ugh
 	@Column(name="ON_HAND",nullable=false)
 	private int onHand;
-	@ManyToMany(mappedBy="products")
+//	@ManyToMany(mappedBy="products")
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="PRODUCT_UPC"),
+	inverseJoinColumns=@JoinColumn(name="CATEGORY_ID"))
 	private Set<Category> catagories;
 	@OneToMany(mappedBy="product")
 	private Set<POLine> orders;

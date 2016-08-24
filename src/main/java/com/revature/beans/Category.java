@@ -21,9 +21,10 @@ public class Category {
 private int catagoryId;
 @Column(name="CATEGORY_DESCRIPTION",nullable=false)
 private String description;
-@ManyToMany(fetch=FetchType.EAGER)
-@JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="CATEGORY_ID"),
-inverseJoinColumns=@JoinColumn(name="PRODUCT_UPC"))
+//@ManyToMany(fetch=FetchType.EAGER)
+//@JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="CATEGORY_ID"),
+//inverseJoinColumns=@JoinColumn(name="PRODUCT_UPC"))
+@ManyToMany(mappedBy="catagories")
 private Set<Product> products;
 public int getCatagoryId() {
 	return catagoryId;
