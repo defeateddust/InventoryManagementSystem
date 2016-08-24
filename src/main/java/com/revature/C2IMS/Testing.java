@@ -29,15 +29,14 @@ public static void main(String[] args) {
 // 	List<Object> category = dl.selectRestricted(new Category(), "description", "RPG");
 // 	for (Object o:category)
 // 		System.out.println(((Category) o).getDescription());
-// 	Category ct = new Category();
-//	ct.setDescription("Expansion");
-//	dl.createRow(ct);
+ 	Category ct = new Category();
+ 	ct.setDescription("Hidden Role");
+	dl.createRow(ct);
  	
  	//DAO dao;
  	//Category cat = new Category();
- 	Category obj = dl.getCategory(122 );
- 	System.out.println("kdhflsfkhglkjdfhgkj");
- 	System.out.println(obj.getDescription());
+
+
  	
 }
 }

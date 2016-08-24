@@ -2,12 +2,14 @@ package com.revature.database;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.revature.beans.Category;
+import com.revature.beans.Product;
 
 public class DataLayer {
 	private static Logger log = Logger.getRootLogger();

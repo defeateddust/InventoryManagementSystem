@@ -38,7 +38,7 @@ public class Product {
 	private double weight;
 	@Column(name="PRODUCT_IMAGE")
 	private Blob image;//ugh
-	@Column(name="ON_HAND")
+	@Column(name="ON_HAND",nullable=false)
 	private int onHand;
 	@ManyToMany(mappedBy="products")
 	private Set<Category> catagories;
