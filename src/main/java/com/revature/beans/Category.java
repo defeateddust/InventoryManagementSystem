@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name="IMS_PRODUCT_CATAGORY")
 public class Category {
@@ -25,6 +27,7 @@ private String description;
 //@JoinTable(name="PRODUCT_CATEGORIES",joinColumns=@JoinColumn(name="CATEGORY_ID"),
 //inverseJoinColumns=@JoinColumn(name="PRODUCT_UPC"))
 @ManyToMany(mappedBy="catagories")
+@JsonIgnore
 private Set<Product> products;
 public int getCatagoryId() {
 	return catagoryId;
