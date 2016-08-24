@@ -7,7 +7,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.revature.beans.Client;
+import com.revature.beans.Category;
 
 public class DataLayer {
 	private static Logger log = Logger.getRootLogger();
@@ -47,7 +47,12 @@ public class DataLayer {
 			trans.rollback();
 		}
 	}
-	
+	public Category getCategory(Serializable id){
+		System.out.println("log.info('tttttttttttttttttttttttttttttttttt')");
+		Transaction trans = session.beginTransaction();
+		return  dao.getCategoryById(id);
+		
+	}
 	
 	public void delete(Object obj, Serializable id) {
 		Transaction trans = session.beginTransaction();

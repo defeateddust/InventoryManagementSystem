@@ -1,12 +1,9 @@
 package com.revature.C2IMS;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 
 import com.revature.beans.Category;
-import com.revature.beans.ClientType;
-import com.revature.beans.State;
+import com.revature.database.DAO;
 import com.revature.database.DataLayer;
 
 public class Testing {
@@ -35,5 +32,12 @@ public static void main(String[] args) {
 // 	Category ct = new Category();
 //	ct.setDescription("Expansion");
 //	dl.createRow(ct);
+ 	
+ 	//DAO dao;
+ 	//Category cat = new Category();
+ 	Category obj = dl.getCategory(122 );
+ 	System.out.println("kdhflsfkhglkjdfhgkj");
+ 	System.out.println(obj.getDescription());
+ 	
 }
 }
