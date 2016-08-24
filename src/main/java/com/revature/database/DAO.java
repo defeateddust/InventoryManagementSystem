@@ -47,7 +47,7 @@ public class DAO {
 		Category instance = (Category) session.load(Category.class, id);
 		
 		if (instance != null){	
-			System.out.println("log.info('sssssssssssssssssssssssssss')");
+
 			//log.info(session.get(Category.class, id));
 			return (Category) session.get(Category.class, id);
 		

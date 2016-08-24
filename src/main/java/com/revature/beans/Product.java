@@ -38,6 +38,8 @@ public class Product {
 	private double weight;
 	@Column(name="PRODUCT_IMAGE")
 	private Blob image;//ugh
+	@Column(name="ON_HAND")
+	private int onHand;
 	@ManyToMany(mappedBy="products")
 	private Set<Category> catagories;
 	@OneToMany(mappedBy="product")
@@ -109,8 +111,16 @@ public class Product {
 	public void setCatagories(Set<Category> catagories) {
 		this.catagories = catagories;
 	}
+	
+	public int getOnHand() {
+		return onHand;
+	}
+	public void setOnHand(int onHand) {
+		this.onHand = onHand;
+	}
 	public Product(int upc, String productName, String description, String shortName, double cost, String size,
-			int reorder, double price, double weight, Blob image, Set<Category> catagories) {
+			int reorder, double price, double weight, Blob image, int onHand, Set<Category> catagories,
+			Set<POLine> orders) {
 		super();
 		this.upc = upc;
 		this.productName = productName;
@@ -122,11 +132,14 @@ public class Product {
 		this.price = price;
 		this.weight = weight;
 		this.image = image;
+		this.onHand = onHand;
 		this.catagories = catagories;
+		this.orders = orders;
 	}
 	public Product() {
 		super();
 	}
+	
 	
 	
 	

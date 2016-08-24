@@ -48,7 +48,7 @@ public class DataLayer {
 		}
 	}
 	public Category getCategory(Serializable id){
-		System.out.println("log.info('tttttttttttttttttttttttttttttttttt')");
+
 		Transaction trans = session.beginTransaction();
 		return  dao.getCategoryById(id);
 		
