@@ -72,7 +72,7 @@ public class DataLayer {
 		return dao.getBy(obj, property, limiter);
 	}
 
-	public List<Object> selectAllRows(Object obj, String order) {
-		return dao.selectAll(obj, order);
+	public List<Object> selectAllRows(Object obj, String order, boolean asc) {
+		return dao.selectAll(obj, order, asc);
 	}
 }

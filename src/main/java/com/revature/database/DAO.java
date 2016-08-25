@@ -56,8 +56,12 @@ public class DAO {
 			return null;
 	}
 	//@SuppressWarnings("unchecked")
-	public List<Object> selectAll(Object obj, String order) {
-		return session.createCriteria(obj.getClass())
-				.addOrder(Order.asc(order)).list();
+	public List<Object> selectAll(Object obj, String order, boolean asc) {
+		Criteria cri = session.createCriteria(obj.getClass());
+		if (asc)
+			cri.addOrder(Order.asc(order));
+		else
+			cri.addOrder(Order.desc(order));
+		return cri.list();
 	}
 }
