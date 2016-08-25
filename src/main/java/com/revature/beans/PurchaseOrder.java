@@ -22,7 +22,7 @@ public class PurchaseOrder {
 	private int orderNumber;
 	@Column(nullable=false)
 	private double subtotal;
-	@Column(name="PURCHASE_DATE",nullable=false)
+	@Column(name="PURCHASE_DATE",nullable=false,columnDefinition="date default sysdate",insertable=false)
 	private Date purchaseDate;
 	@Column(name="TAX_AMOUNT",nullable=false)
 	private double tax;
